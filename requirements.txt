@@ -1,0 +1,6 @@
+fabric
+invoke
+PyYAML
+requests
+urllib3
+paramiko

@@ -1,0 +1,30 @@
+---
+# list of node groups
+service:
+  splunk:
+    config:
+      system_user: 'splunk_maintenance_account'
+      system_user_pass: ''
+      splunk_user: 'admin'
+      splunk_user_pass: 'changeme'
+      verify_tls: False
+      splunk_cm_api_url: 'https://splunk-cluster-master01.domain.tld:8089'
+      splunk_status_check_path: 'services/cluster/master/status?output_mode=json'
+      splunk_set_mm_path: 'services/cluster/master/control/default/maintenance?output_mode=json'
+    roles:
+      lm:
+        - "splunk-license-master01.domain.tld"
+      ds:
+        - "splunk-deployment-server01.domain.tld"
+      cm:
+        - "splunk-cluster-master01.domain.tld"
+      shc:
+        - "splunk-search-head01.domain.tld"
+        - "splunk-search-head02.domain.tld"
+        - "splunk-search-head03.domain.tld"
+      idx:
+        - "splunk-indexer01.domain.tld"
+        - "splunk-indexer02.domain.tld"
+        - "splunk-indexer03.domain.tld"
+      hf:
+        - "splunk-heavy-forwarder01.domain.tld"
